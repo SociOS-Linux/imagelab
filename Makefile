@@ -14,3 +14,7 @@
 
 			image-shell:
     			./scripts/image_shell.sh
+
+.PHONY: validate
+validate:
+	./tools/validate.sh
