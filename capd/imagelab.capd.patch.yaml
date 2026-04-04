@@ -1,0 +1,11 @@
+# imagelab.capd.v0.yaml patch fragment
+contracts:
+  rpc_dir: "rpc"
+  schema_dir: "schemas"
+  session_dir: "sessions"
+  skill_dir: "skills"
+  memory_dir: "memory"
+validators:
+  executionDecision: "python -m validators.execution_decision"
+  skillManifest: "python -m validators.skill_manifest"
+  sessionReceipt: "python -m validators.session_receipt"
