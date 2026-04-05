@@ -206,7 +206,7 @@ kind: ValidatingWebhookConfiguration
 metadata:
   name: imagelab-validator
 webhooks:
-  - name: executiondecision.imagelab.socio
+  - name: execution-decision.imagelab.socio
     admissionReviewVersions: ["v1"]
     clientConfig:
       service:
@@ -220,7 +220,7 @@ webhooks:
         resources:   ["executiondecisions"]
     sideEffects: None
 
-  - name: skillmanifest.imagelab.socio
+  - name: skill-manifest.imagelab.socio
     admissionReviewVersions: ["v1"]
     clientConfig:
       service:
@@ -234,7 +234,7 @@ webhooks:
         resources:   ["skillmanifests"]
     sideEffects: None
 
-  - name: sessionreceipt.imagelab.socio
+  - name: session-receipt.imagelab.socio
     admissionReviewVersions: ["v1"]
     clientConfig:
       service:
@@ -261,8 +261,8 @@ from pathlib import Path
 
 def handle_admission(review: dict, validator_module: str) -> dict:
     """
-    review         – decoded AdmissionReview JSON from Kubernetes API server
-    validator_module – e.g. 'validators.execution_decision'
+    review: decoded AdmissionReview JSON from Kubernetes API server
+    validator_module: e.g. 'validators.execution_decision'
     """
     uid = review["request"]["uid"]
     obj = review["request"]["object"]
