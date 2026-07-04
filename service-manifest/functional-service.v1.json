@@ -1,15 +1,15 @@
 {
   "schemaVersion": "functional-service.v1",
   "service": {
-    "id": "imagelab.holmes.vision-pilot",
-    "name": "ImageLab Holmes Vision Pilot",
+    "id": "imagelab.holmes.image-pilot",
+    "name": "ImageLab Holmes Image Pilot",
     "ownerRepository": "SociOS-Linux/imagelab",
     "status": "experimental",
-    "description": "Offline deterministic image-feature and ranking pilot for Holmes vision-intelligence and SourceOS carry integration."
+    "description": "Offline deterministic image functional surface emitted by imagelab for governed promotion."
   },
   "function": "image",
   "model": {
-    "modelRef": "urn:socioprophet:functional-model:imagelab:deterministic-vision:v0",
+    "modelRef": "urn:socioprophet:functional-model:imagelab:deterministic-image:v0",
     "adapterRefs": [],
     "runtime": "python-stdlib-offline-smoke",
     "mutableStatePolicy": "forbidden-in-sourceos"
@@ -19,7 +19,7 @@
     "image/corpus"
   ],
   "outputs": [
-    "vision/features",
+    "image/features",
     "ranking/candidates",
     "evidence/smoke-receipt"
   ],
@@ -30,7 +30,7 @@
       "examples/smoke-output.json",
       "evidence/smoke-receipt.example.json"
     ],
-    "minimumPromotionGate": "offline-smoke-similarity-ordering"
+    "minimumPromotionGate": "candidate requires signed eval and dataset provenance"
   },
   "governance": {
     "ledgerRequired": true,

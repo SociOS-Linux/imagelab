@@ -19,7 +19,7 @@ REQUIRED_FILES = [
 ]
 
 EXPECTED_SERVICE_ID = "imagelab.holmes.vision-pilot"
-EXPECTED_FUNCTION = "vision"
+EXPECTED_FUNCTION = "image"
 
 
 def fail(message: str) -> int:
