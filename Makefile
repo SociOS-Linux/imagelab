@@ -1,20 +1,10 @@
-			.PHONY: image-bootstrap image-rebuild image-verify image-smoketest image-shell
+.PHONY: validate smoke carry
 
-			image-bootstrap:
-    			./scripts/bootstrap_brew_image.sh
-
-			image-rebuild:
-    			./scripts/rebuild_image_env.sh
-
-			image-verify:
-    			./scripts/verify_image_env.sh
-
-			image-smoketest:
-    			source .venv-image/bin/activate && ./scripts/smoketest_image.sh
-
-			image-shell:
-    			./scripts/image_shell.sh
-
-.PHONY: validate
 validate:
-	./tools/validate.sh
+	python3 tools/validate.py
+
+smoke:
+	python3 tools/smoke.py
+
+carry:
+	python3 tools/emit_sourceos_carry.py > examples/sourceos-carry.imagelab.json
