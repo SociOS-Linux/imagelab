@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "functional-service.v1",
+  "service": {
+    "id": "imagelab.holmes.image-pilot",
+    "name": "ImageLab Holmes Image Pilot",
+    "ownerRepository": "SociOS-Linux/imagelab",
+    "status": "experimental",
+    "description": "Offline deterministic image functional surface emitted by imagelab for governed promotion."
+  },
+  "function": "image",
+  "model": {
+    "modelRef": "urn:socioprophet:functional-model:imagelab:deterministic-image:v0",
+    "adapterRefs": [],
+    "runtime": "python-stdlib-offline-smoke",
+    "mutableStatePolicy": "forbidden-in-sourceos"
+  },
+  "inputs": [
+    "image/query",
+    "image/corpus"
+  ],
+  "outputs": [
+    "image/features",
+    "ranking/candidates",
+    "evidence/smoke-receipt"
+  ],
+  "evals": {
+    "required": true,
+    "references": [
+      "examples/smoke-input.json",
+      "examples/smoke-output.json",
+      "evidence/smoke-receipt.example.json"
+    ],
+    "minimumPromotionGate": "candidate requires signed eval and dataset provenance"
+  },
+  "governance": {
+    "ledgerRequired": true,
+    "guardrailRequired": true,
+    "routingRequired": true,
+    "policyRefs": [
+      "SocioProphet/model-governance-ledger",
+      "SocioProphet/guardrail-fabric",
+      "SocioProphet/model-router",
+      "SocioProphet/holmes"
+    ]
+  },
+  "sourceosCarry": {
+    "allowed": true,
+    "carriesMutableModelState": true,
+    "clientRefRequired": true,
+    "launchProfileRefs": [
+      "urn:srcos:model-carry:functional-service:imagelab-holmes-pilot"
+    ]
+  }
+}
